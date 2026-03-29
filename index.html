@@ -6,8 +6,15 @@
 <title>WOLVES AFTER DARK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
+@font-face {
+  font-family: 'NikeCombat';
+  src: url('data:font/truetype;base64,AAEAAAAOAIAAAwBgRFNJRwAAAAEAACf8AAAACEdERUYADwAAAAAoBAAAABBHU1VC0+/bSwAAKBQAAACGT1MvMkPXUbcAAAFoAAAAYGNtYXC9T7vhAAAFeAAAA2ZnYXNw//8AAwAAJ/QAAAAIZ2x5ZpsvMjMAAAq8AAAVkGhlYWQHPrEnAAAA7AAAADZoaGVhDxEHkwAAASQAAAAkaG10eBBjBN4AAAHIAAADsGxvY2HS4c3yAAAI4AAAAdptYXhwAPAAQAAAAUgAAAAgbmFtZZ0e+1IAACBMAAAFZHBvc3SyTzeQAAAlsAAAAkMAAQAAAAEAAPa5dNlfDzz1AAkIAAAAAADPoNcxAAAAANEFj9b/k/+LB+kFmgAAAAYAAQAAAAAAAAABAAAGtP5eAN4I3/+T/2kH6QABAAAAAAAAAAAAAAAAAAAA7AABAAAA7ABAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMEbQGQAAUACAWaBTMAAAEbBZoFMwAAA9EAZgISAAACAAUAAAAAAAAAgAAAp1AAAEoAAAAAAAAAAEhMICAAQAAA+wIFmv5mAM0GtAGiIAAAAQAAAAAEAAWaAAAAIAADBMQAYgAAAAAB/AAAAfwAAAKgAAACoAAABTgAAAP2AAAGSgAABpMAAAFaAAAC9gAAAvYAAAQAAAAD9gAAAi0AAAKeAAACLQAAAjkAAATrAAACxAAABPwAAATqAAAE5gAABO4AAATYAAAEeQAABP0AAATYAAACLQAAAi0AAAP2AAAD9gAAA/YAAALsAAAH4wAABfj/kwVe//gFQgAnBUL/+AT2//gE3//4BXUAJwWJ//gChQACBK4ACAV3//gEmv/4Bt3/+AWy//gFdQAnBWD/+AWHACcFff/4BSEAIQTnAJYFSgAnBagAtAePALQFj/+mBPwAmAUd/9kC9gAAAjkAAAL2AAAD9gAABAAAAAQAAAAF+P+TBV7/+AVCACcFQv/4BPb/+ATf//gFdQAnBYn/+AKFAAIErgAIBXf/+ASa//gG3f/4BbL/+AV1ACcFYP/4BYcAJwV9//gFIQAhBOcAlgVKACcFqAC0B48AtAWP/6YE/ACYBR3/2QP2AAAD9gAAA/YAAAP2AAACoAAABHMAAAP2AAAD9gAABO4AAAP2AAAD9gAABAAAAAaKAAACiAAAA7AAAAP2AAAGigAAAp4AAAKiAAAD9gAAA/YAAAP2AAAEAAAABJwAAAQAAAAB/AAABAAAAAP2AAACzgAAA7AAAAasAAAHrAAABqwAAALsAAAGBAAABgQAAAYEAAAGBAAABgQAAAYEAAAIRgAABXcAAAR/AAAEfwAABH8AAAR/AAACkQAAApEAAAKRAAACkQAABe4AAAYSAAAGTgAABk4AAAZOAAAGTgAABk4AAAP2AAAGTgAABd0AAAXdAAAF3QAABd0AAATRAAAEYAAABOMAAAOaAAADmgAAA5oAAAOaAAADmgAAA5oAAAWuAAADiQAAA40AAAONAAADjQAAA40AAAICAAACAgAAAgIAAAICAAAEcwAABFQAAAPyAAAD8gAAA/IAAAPyAAAD8gAAA/YAAAPyAAAEIwAABCMAAAQjAAAEIwAAA2QAAAPyAAADZAAAAgIAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAAQAAAAEAAAABAAAAARUAAAIAAAAAi0AAAItAAACLQAAA44AAAOOAAADjgAAA/YAAAP2AAAEAAAACAAAAAJ3AAACdwAAAVYAAAP2AAAD9gAAB+wAAAP2AAAI3wAABdkAAAP2AAAEOQAABesAAAS2AAAD9gAAA/YAAAP2AAACmQAAA/YAAAP2AAAD9gAABDEAAAQ5AAAAAAADAAAAAwAAABwAAQAAAAABXAADAAEAAAAcAAQBQAAAAEoAQAAFAAoAAAAdAH4AoACsAK0A/wExAscCyQLdA34gFCAaIB4gIiAmIDogRCCkIKcgrCEWISIiAiIGIg8iEiIVIhoiHiIrIkgiZfAC+wL//wAAAAAAHQAgAKAAoQCtAK4BMQLGAskC2AN+IBMgGCAcICAgJiA5IEQgoyCnIKwhFiEiIgIiBiIPIhEiFSIZIh4iKyJIImTwAfsB//8AAf/k/+MAAP/BAAD/wP+P/fv9+v3s/KDgt+C04LPgsuCv4J3glOA24DTgMN/H37ze3d7a3tLe0d7DAADex9673p/ehBDpBekAAQAAAAAAAABEAAAAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAAAAMAEAB3AOQABgIKAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAADAAQABQAGAAcACAAJAAoACwAMAA0ADgAPABAAEQASABMAFAAVABYAFwAYABkAGgAbABwAHQAeAB8AIAAhACIAIwAkACUAJgAnACgAKQAqACsALAAtAC4ALwAwADEAMgAzADQANQA2ADcAOAA5ADoAOwA8AD0APgA/AEAAQQBCAEMARABFAEYARwBIAEkASgBLAEwATQBOAE8AUABRAFIAUwBUAFUAVgBXAFgAWQBaAFsAXABdAF4AXwBgAGEAAACEAIUAhwCJAJEAlgCcAKEAoACiAKQAowClAKcAqQCoAKoAqwCtAKwArgCvALEAswCyALQAtgC1ALoAuQC7ALwA0gBwAGMAZABoANQAdgCfAG4AagDeAHQAaQAAAIYAmADlAHEA6ADpAGYAdQDfAOIA4QAAAOYAawB6AAAApgC4AH8AYgBtAOQAAADnAOAAbAB7ANUAAwCAAIMAlQAAAAAAygDLAM8A0ADMAM0AtwAAAL8AAADYANwA1gDXAOoA6wDTAHcAzgDRAAAAggCKAIEAiwCIAI0AjgCPAIwAkwCUAAAAkgCaAJsAmQDAAMEAyABvAMQAxQDGAHgAyQDHAMIAAAAAABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQAFAAUABQATABiAKYA/gEgAWABqAHCAigCcAJwAnACcAJwAnACcAJwAowC0AMSAzwDXAN4A74D3gPuBBQENgRKBHAEkATGBPIFKgVYBb4F1AX+BhgGPAZeBnwGnAacBpwGnAacBpwGnAa4BvwHPgdoB4gHpAfqCAoIGghACGIIdgicCLwI8gkeCVYJhAnqCgAKKgpECmgKigqoCsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArICsgKyArI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AGcAdQBsAGEAcgBOAGkAawBlACAAQwBvAG0AYgBhAHQAIABTAHQAZQBuAGMAaQBsADoAVgBlAHIAcwBpAG8AbgAgADEALgAwADAAVgBlAHIAcwBpAG8AbgAgADEALgAwADAAIABGAGUAYgByAHUAYQByAHkAIAAxADQALAAgADIAMAAxADUALAAgAGkAbgBpAHQAaQBhAGwAIAByAGUAbABlAGEAcwBlAE4AaQBrAGUAQwBvAG0AYgBhAHQAUwB0AGUAbgBjAGkAbABUAGgAaQBzACAAZgBvAG4AdAAgAHcAYQBzACAAYwByAGUAYQB0AGUAZAAgAHUAcwBpAG4AZwAgAEYAbwBuAHQAQwByAGUAYQB0AG8AcgAgADcALgA1ACAAZgByAG8AbQAgAEgAaQBnAGgALQBMAG8AZwBpAGMALgBjAG8AbQBUAGgAaQBzACAAZgBvAG4AdAAgAGkAcwAgAG0AYQBkAGUAIAB3AGkAdABoACAAdABoAGUAIABoAG8AbQBlACAAZQBkAGkAdABpAG8AbgAgAG8AZgAgAEYAbwBuAHQAQwByAGUAYQB0AG8AcgAuACAAWQBvAHUAIABtAGEAeQAgAG4AbwB0ACAAdQBzAGUAIAB0AGgAaQBzACAAZgBvAG4AdAAgAGYAbwByACAAYwBvAG0AbQBlAHIAYwBpAGEAbAAgAHAAdQByAHAAbwBzAGUAcwAuAGgAdAB0AHAAOgAvAC8AdwB3AHcALgBoAGkAZwBoAC0AbABvAGcAaQBjAC4AYwBvAG0ALwBmAG8AbgB0AGMAcgBlAGEAdABvAHIALwBmAG8AbgB0AGwAaQBjAGUAbgBzAGUALgBoAHQAbQBsAAIAAAAAAAD/JwCWAAAAAAAAAAAAAAAAAAAAAAAAAAAA7AAAAAEAAgADAAQABQAGAAcACAAJAAoACwAMAA0ADgAPABAAEQASABMAFAAVABYAFwAYABkAGgAbABwAHQAeAB8AIAAhACIAIwAkACUAJgAnACgAKQAqACsALAAtAC4ALwAwADEAMgAzADQANQA2ADcAOAA5ADoAOwA8AD0APgA/AEAAQQBCAEMARABFAEYARwBIAEkASgBLAEwATQBOAE8AUABRAFIAUwBUAFUAVgBXAFgAWQBaAFsAXABdAF4AXwBgAGEAowCEAIUAvQCWAOgAhgCOAIsAnQCpAKQAigDaAIMAkwECAQMAjQCXAIgAwwDeAQQAngCqAPUA9AD2AKIArQDJAMcArgBiAGMAkABkAMsAZQDIAMoAzwDMAM0AzgDpAGYA0wDQANEArwBnAPAAkQDWANQA1QBoAOsA7QCJAGoAaQBrAG0AbABuAKAAbwBxAHAAcgBzAHUAdAB2AHcA6gB4AHoAeQB7AH0AfAC4AKEAfwB+AIAAgQDsAO4AugDXANgA4QEFANsA3ADdAOAA2QDfALIAswC2ALcAxAC0ALUAxQCCAMIAhwCrAL4AvwC8APcBBgEHAQgBCQCMAJgAqACaAJkA7wClAJIAnACnAJQAlQEKAQsHdW5pMDBCMgd1bmkwMEIzB3VuaTAwQjkHdW5pMDJDOQRsaXJhBnBlc2V0YQRFdXJvB3VuaTIxMTYHdW5pRjAwMQd1bmlGMDAyAAAAAAH//wACAAAAAQAAAAAAAQAAAAwAAAAAAAAAAgAAAAEAAAAKAB4ALgABbGF0bgAIAAQAAAAA//8AAQAAAAFmcmFjAAgAAAACAAAAAQACAAYADgABAAAAAQAQAAQAAAABABYAAgAIAAEA2AABAAEAEgABACwAAgAKACAAAgAGAA4AfQADANgAFQB8AAMA2AAXAAEABAB+AAMA2AAXAAEAAgAUABYAAA==') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -39,12 +46,13 @@
     background: repeating-linear-gradient(
       0deg,
       transparent,
-      transparent 2px,
-      rgba(0,0,0,0.08) 2px,
-      rgba(0,0,0,0.08) 4px
+      transparent 3px,
+      rgba(0,0,0,0.03) 3px,
+      rgba(0,0,0,0.03) 4px
     );
     pointer-events: none;
     z-index: 1000;
+    mix-blend-mode: multiply;
   }
 
   /* ── NAV ── */
@@ -68,7 +76,7 @@
   }
 
   .nav-logo-wad {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 32px;
     letter-spacing: 4px;
     color: var(--green);
@@ -77,6 +85,7 @@
   }
 
   .nav-logo-sub {
+    font-family: 'NikeCombat', monospace;
     font-size: 9px;
     letter-spacing: 4px;
     color: var(--muted);
@@ -91,6 +100,7 @@
   }
 
   .nav-links a {
+    font-family: 'NikeCombat', monospace;
     font-size: 10px;
     letter-spacing: 3px;
     color: var(--muted);
@@ -104,6 +114,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    font-family: 'NikeCombat', monospace;
     font-size: 9px;
     letter-spacing: 2px;
     color: var(--red);
@@ -150,7 +161,8 @@
   }
 
   .video-label {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 4px;
     color: var(--muted);
     margin-bottom: 8px;
@@ -226,7 +238,7 @@
   }
 
   .video-title-text {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 16px;
     letter-spacing: 2px;
     color: var(--text);
@@ -234,7 +246,8 @@
   }
 
   .video-sub {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 2px;
     color: var(--muted);
   }
@@ -246,7 +259,7 @@
   }
 
   .watch-btn {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: 'NikeCombat', monospace;
     font-size: 8px;
     letter-spacing: 2px;
     color: var(--green);
@@ -270,7 +283,8 @@
 
   /* ── SECTION HEADERS ── */
   .section-hdr {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 4px;
     color: var(--muted);
     border-bottom: 1px solid var(--border2);
@@ -300,7 +314,7 @@
   }
 
   .score-name {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 22px;
     letter-spacing: 2px;
     color: var(--text);
@@ -309,7 +323,7 @@
   .score-name.wolves { color: var(--green); text-shadow: 0 0 12px rgba(0,255,65,0.4); }
 
   .score-num {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 48px;
     letter-spacing: -2px;
     line-height: 1;
@@ -319,14 +333,15 @@
   .score-num.opp    { color: var(--muted); }
 
   .score-divider {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 24px;
     color: var(--border2);
     letter-spacing: 0;
   }
 
   .score-status {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 3px;
     color: var(--muted);
     text-align: center;
@@ -365,13 +380,14 @@
   }
 
   .ql-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 15px;
     letter-spacing: 2px;
     color: var(--text);
   }
 
   .ql-sub {
+    font-family: 'NikeCombat', monospace;
     font-size: 8px;
     letter-spacing: 1px;
     color: var(--muted);
@@ -405,7 +421,8 @@
     border: 1px solid var(--border2);
     text-decoration: none;
     color: var(--muted);
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 2px;
     transition: border-color 0.2s, color 0.2s;
   }
@@ -484,7 +501,7 @@
   }
 
   .stream-title {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -498,7 +515,8 @@
   }
 
   .stream-meta {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 1px;
     color: var(--muted);
   }
@@ -521,7 +539,8 @@
   }
 
   .ticker-item {
-    font-size: 9px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 10px;
     letter-spacing: 3px;
     color: var(--muted);
     flex-shrink: 0;
@@ -551,7 +570,8 @@
   }
 
   .section-divider-label {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 4px;
     color: var(--muted);
     flex-shrink: 0;
@@ -569,14 +589,15 @@
   }
 
   .footer-brand {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'NikeCombat', monospace;
     font-size: 18px;
     letter-spacing: 4px;
     color: var(--dim);
   }
 
   .footer-copy {
-    font-size: 8px;
+    font-family: 'NikeCombat', monospace;
+    font-size: 9px;
     letter-spacing: 2px;
     color: var(--dim);
   }
@@ -620,8 +641,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-wad">WAD</div>
-    <div class="nav-logo-sub">Wolves After Dark</div>
+    <div class="nav-logo-wad">WOLVES AFTER DARK</div>
   </div>
   <ul class="nav-links">
     <li><a href="wad-tier-list.html">TIER LIST</a></li>
@@ -645,11 +665,22 @@
     <div class="video-section">
       <div class="video-label">// LATEST STREAM</div>
       <div class="video-frame-wrap">
-        <div class="video-iframe-container">
-          <!-- Embeds the most recent video from the WAD channel -->
+        <div class="video-iframe-container" id="videoContainer">
+          <!-- Placeholder shown until JS loads the real video ID -->
+          <div id="videoPlaceholder" style="
+            position:absolute;inset:0;background:#030d06;
+            display:flex;flex-direction:column;
+            align-items:center;justify-content:center;gap:16px;
+            cursor:pointer;
+          " onclick="openChannel()">
+            <div style="font-family:'NikeCombat',monospace;font-size:28px;letter-spacing:6px;color:#00ff41;text-shadow:0 0 30px rgba(0,255,65,0.4);line-height:1;">WOLVES AFTER DARK</div>
+            <div style="font-size:9px;letter-spacing:4px;color:#4a7a58;">// LOADING LATEST STREAM...</div>
+            <div id="loadingDots" style="font-size:9px;letter-spacing:3px;color:#1a4028;">▶ ▶ ▶</div>
+          </div>
           <iframe
             id="mainVideo"
-            src="https://www.youtube.com/embed/live_stream?channel=UCCg4WYPQrhJAQFMRBLpUA2w&rel=0&modestbranding=1"
+            src=""
+            style="display:none;"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
@@ -673,18 +704,21 @@
       <!-- Score card -->
       <div class="score-card">
         <div class="section-hdr">// TIMBERWOLVES · 2025-26</div>
-        <div class="score-teams">
-          <div class="score-team">
-            <div class="score-name wolves">MIN</div>
-            <div class="score-num wolves" id="wolvesRecord">45-28</div>
+        <div style="display:flex;align-items:stretch;gap:0;border:1px solid var(--border2);margin-top:4px;">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:12px 8px;border-right:1px solid var(--border2);">
+            <div style="font-family:'NikeCombat',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);">WIN</div>
+            <div class="score-num wolves" id="wolvesWins" style="font-size:52px;">45</div>
           </div>
-          <div class="score-divider">·</div>
-          <div class="score-team">
-            <div class="score-name">WEST</div>
-            <div class="score-num opp" id="westSeed">4TH</div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:12px 8px;">
+            <div style="font-family:'NikeCombat',monospace;font-size:9px;letter-spacing:3px;color:var(--muted);">LOSS</div>
+            <div class="score-num opp" id="wolvesLosses" style="font-size:52px;">29</div>
           </div>
         </div>
-        <div class="score-status" id="scoreStatus">REGULAR SEASON · LIVE RECORD</div>
+        <div style="display:flex;justify-content:space-between;margin-top:8px;">
+          <div style="font-family:'NikeCombat',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);">MINNESOTA TIMBERWOLVES</div>
+          <div style="font-family:'NikeCombat',monospace;font-size:9px;letter-spacing:2px;color:var(--green);">5TH WEST</div>
+        </div>
+  
       </div>
 
       <!-- Quick links -->
@@ -749,11 +783,11 @@
     <div class="ticker-track">
       <span class="ticker-item"><span>▶</span>WOLVES AFTER DARK · POST-GAME STREAMS LIVE AFTER EVERY TIMBERWOLVES GAME</span>
       <span class="ticker-item"><span>★</span>NIGHTLY TIER LIST · GRADE THE WOLVES WITH THE COMMUNITY</span>
-      <span class="ticker-item"><span>▶</span>JOIN THE DISCORD · TALK WOLVES 24/7 WITH THE WAD PACK</span>
+      <span class="ticker-item"><span>▶</span>JOIN THE DISCORD · TALK WOLVES 24/7 WITH THE COMMUNITY</span>
       <span class="ticker-item"><span>★</span>BECOME A MEMBER · SUPPORT THE SHOW AND GET EXCLUSIVE PERKS</span>
       <span class="ticker-item"><span>▶</span>WOLVES AFTER DARK · POST-GAME STREAMS LIVE AFTER EVERY TIMBERWOLVES GAME</span>
       <span class="ticker-item"><span>★</span>NIGHTLY TIER LIST · GRADE THE WOLVES WITH THE COMMUNITY</span>
-      <span class="ticker-item"><span>▶</span>JOIN THE DISCORD · TALK WOLVES 24/7 WITH THE WAD PACK</span>
+      <span class="ticker-item"><span>▶</span>JOIN THE DISCORD · TALK WOLVES 24/7 WITH THE COMMUNITY</span>
       <span class="ticker-item"><span>★</span>BECOME A MEMBER · SUPPORT THE SHOW AND GET EXCLUSIVE PERKS</span>
     </div>
   </div>
@@ -792,6 +826,21 @@
 const CHANNEL_ID = 'UCCg4WYPQrhJAQFMRBLpUA2w';
 const RSS_URL    = `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}&count=4`;
 
+function openChannel() {
+  window.open('https://www.youtube.com/@wolvesafterdark', '_blank');
+}
+
+// Animate loading dots
+let dotFrame = 0;
+const dotStates = ['▶ ▷ ▷','▶ ▶ ▷','▶ ▶ ▶','▷ ▶ ▶','▷ ▷ ▶'];
+setInterval(() => {
+  const el = document.getElementById('loadingDots');
+  if (el && el.closest('#videoPlaceholder')?.style.display !== 'none') {
+    el.textContent = dotStates[dotFrame % dotStates.length];
+    dotFrame++;
+  }
+}, 400);
+
 async function loadRecentStreams() {
   try {
     const resp = await fetch(RSS_URL);
@@ -805,8 +854,11 @@ async function loadRecentStreams() {
     const latest = data.items[0];
     const latestId = latest.link.split('v=')[1]?.split('&')[0];
     if (latestId) {
-      document.getElementById('mainVideo').src =
-        `https://www.youtube.com/embed/${latestId}?rel=0&modestbranding=1`;
+      const iframe = document.getElementById('mainVideo');
+      const placeholder = document.getElementById('videoPlaceholder');
+      iframe.src = `https://www.youtube.com/embed/${latestId}?rel=0&modestbranding=1`;
+      iframe.style.display = 'block';
+      if (placeholder) placeholder.style.display = 'none';
     }
 
     // Streams 1–4 → recent grid
@@ -837,7 +889,7 @@ async function loadRecentStreams() {
     // Fallback — show channel link
     const grid = document.getElementById('recentStreams');
     grid.innerHTML = `<a href="https://www.youtube.com/@wolvesafterdark" target="_blank" class="stream-card" style="grid-column:1/-1;padding:24px;display:flex;align-items:center;justify-content:center;gap:12px;">
-      <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:var(--green);">VIEW ALL STREAMS ON YOUTUBE ↗</span>
+      <span style="font-family:'NikeCombat',monospace;font-size:18px;letter-spacing:2px;color:var(--green);">VIEW ALL STREAMS ON YOUTUBE ↗</span>
     </a>`;
   }
 }
@@ -848,7 +900,13 @@ async function loadRecord() {
     const r = await fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/16');
     const d = await r.json();
     const rec = d.team.record.items[0].summary;
-    document.getElementById('wolvesRecord').textContent = rec;
+    const parts = rec.split('-');
+    if (parts.length === 2) {
+      const wEl = document.getElementById('wolvesWins');
+      const lEl = document.getElementById('wolvesLosses');
+      if (wEl) wEl.textContent = parts[0];
+      if (lEl) lEl.textContent = parts[1];
+    }
     document.getElementById('scoreStatus').textContent = 'REGULAR SEASON · LIVE RECORD';
   } catch(e) {}
 }
