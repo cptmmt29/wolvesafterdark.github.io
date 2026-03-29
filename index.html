@@ -824,13 +824,11 @@
 <script>
 // ── Populate recent streams via YouTube RSS (CORS-friendly via proxy) ──
 const CHANNEL_ID = 'UCCg4WYPQrhJAQFMRBLpUA2w';
-const RSS_URL    = `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}&count=4`;
 
 function openChannel() {
   window.open('https://www.youtube.com/@wolvesafterdark', '_blank');
 }
 
-// Animate loading dots
 let dotFrame = 0;
 const dotStates = ['▶ ▷ ▷','▶ ▶ ▷','▶ ▶ ▶','▷ ▶ ▶','▷ ▷ ▶'];
 setInterval(() => {
@@ -841,57 +839,105 @@ setInterval(() => {
   }
 }, 400);
 
-async function loadRecentStreams() {
-  try {
-    const resp = await fetch(RSS_URL);
-    const data = await resp.json();
-    if (!data.items || !data.items.length) return;
+function extractVideoId(link) {
+  if (!link) return '';
+  const m = link.match(/[?&]v=([^&]+)/);
+  if (m) return m[1];
+  return link.split('/').pop().split('?')[0];
+}
 
-    const grid = document.getElementById('recentStreams');
-    grid.innerHTML = '';
+function buildStreamCard(vid, title, dateStr) {
+  const card = document.createElement('a');
+  card.href = `https://www.youtube.com/watch?v=${vid}`;
+  card.target = '_blank';
+  card.className = 'stream-card';
+  card.innerHTML = `
+    <div class="stream-thumb">
+      <img src="https://i.ytimg.com/vi/${vid}/hqdefault.jpg" alt="${title}" loading="lazy" onerror="this.style.opacity='0.2'">
+      <div class="stream-thumb-overlay"></div>
+    </div>
+    <div class="stream-info">
+      <div class="stream-title">${title}</div>
+      <div class="stream-meta">${dateStr}</div>
+    </div>`;
+  return card;
+}
 
-    // Latest video → update main player immediately
-    const latest = data.items[0];
-    const latestId = latest.link.split('v=')[1]?.split('&')[0];
-    if (latestId) {
-      const iframe = document.getElementById('mainVideo');
-      const placeholder = document.getElementById('videoPlaceholder');
-      iframe.src = `https://www.youtube.com/embed/${latestId}?rel=0&modestbranding=1`;
-      iframe.style.display = 'block';
-      if (placeholder) placeholder.style.display = 'none';
-    }
-
-    // Streams 1–4 → recent grid
-    const recent = data.items.slice(0, 4);
-    recent.forEach((item, i) => {
-      const vid    = item.link.split('v=')[1] || '';
-      const thumb  = `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
-      const date   = new Date(item.pubDate);
-      const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
-
-      const card = document.createElement('a');
-      card.href   = item.link;
-      card.target = '_blank';
-      card.className = 'stream-card';
-      card.style.animationDelay = `${i * 0.08}s`;
-      card.innerHTML = `
-        <div class="stream-thumb">
-          <img src="${thumb}" alt="${item.title}" loading="lazy">
-          <div class="stream-thumb-overlay"></div>
-        </div>
-        <div class="stream-info">
-          <div class="stream-title">${item.title}</div>
-          <div class="stream-meta">${dateStr}</div>
-        </div>`;
-      grid.appendChild(card);
-    });
-  } catch (e) {
-    // Fallback — show channel link
-    const grid = document.getElementById('recentStreams');
-    grid.innerHTML = `<a href="https://www.youtube.com/@wolvesafterdark" target="_blank" class="stream-card" style="grid-column:1/-1;padding:24px;display:flex;align-items:center;justify-content:center;gap:12px;">
-      <span style="font-family:'NikeCombat',monospace;font-size:18px;letter-spacing:2px;color:var(--green);">VIEW ALL STREAMS ON YOUTUBE ↗</span>
-    </a>`;
+function setMainPlayer(vid) {
+  const iframe = document.getElementById('mainVideo');
+  const placeholder = document.getElementById('videoPlaceholder');
+  if (iframe && vid) {
+    iframe.src = `https://www.youtube.com/embed/${vid}?rel=0&modestbranding=1`;
+    iframe.style.display = 'block';
   }
+  if (placeholder) placeholder.style.display = 'none';
+}
+
+function populateGrid(items) {
+  const grid = document.getElementById('recentStreams');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  const latest = extractVideoId(items[0]?.link);
+  if (latest) setMainPlayer(latest);
+
+  items.slice(0, 4).forEach((item, i) => {
+    const vid = extractVideoId(item.link);
+    if (!vid) return;
+    const date = new Date(item.pubDate || item.published || '');
+    const dateStr = isNaN(date.getTime()) ? '' :
+      date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+    const card = buildStreamCard(vid, item.title || 'WOLVES AFTER DARK', dateStr);
+    card.style.animationDelay = `${i * 0.1}s`;
+    grid.appendChild(card);
+  });
+}
+
+function showFallback() {
+  const grid = document.getElementById('recentStreams');
+  if (!grid) return;
+  grid.innerHTML = '';
+  grid.style.gridTemplateColumns = '1fr';
+  const a = document.createElement('a');
+  a.href = 'https://www.youtube.com/@wolvesafterdark';
+  a.target = '_blank';
+  a.className = 'stream-card';
+  a.style.cssText = 'padding:32px;display:flex;align-items:center;justify-content:center;';
+  a.innerHTML = `<span style="font-family:'NikeCombat',monospace;font-size:16px;letter-spacing:3px;color:var(--green);">VIEW ALL STREAMS ON YOUTUBE ↗</span>`;
+  grid.appendChild(a);
+}
+
+async function loadRecentStreams() {
+  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+
+  // Attempt 1 — rss2json
+  try {
+    const r = await fetch(
+      `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&count=8`,
+      { signal: AbortSignal.timeout(6000) }
+    );
+    const d = await r.json();
+    if (d.items?.length) { populateGrid(d.items); return; }
+  } catch(e) {}
+
+  // Attempt 2 — allorigins proxy + DOMParser
+  try {
+    const r = await fetch(
+      `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrl)}`,
+      { signal: AbortSignal.timeout(7000) }
+    );
+    const d = await r.json();
+    const doc = new DOMParser().parseFromString(d.contents, 'text/xml');
+    const entries = Array.from(doc.querySelectorAll('entry')).map(e => ({
+      title:   e.querySelector('title')?.textContent || '',
+      link:    e.querySelector('link')?.getAttribute('href') || '',
+      pubDate: e.querySelector('published')?.textContent || '',
+    }));
+    if (entries.length) { populateGrid(entries); return; }
+  } catch(e) {}
+
+  // Give up — show channel link
+  showFallback();
 }
 
 // ── Live record fetch via ESPN API ──
