@@ -649,7 +649,7 @@
           <!-- Embeds the most recent video from the WAD channel -->
           <iframe
             id="mainVideo"
-            src="https://www.youtube.com/embed?listType=user_uploads&list=UCCg4WYPQrhJAQFMRBLpUA2w&index=0&autoplay=0&rel=0&modestbranding=1"
+            src="https://www.youtube.com/embed/live_stream?channel=UCCg4WYPQrhJAQFMRBLpUA2w&rel=0&modestbranding=1"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
@@ -801,15 +801,15 @@ async function loadRecentStreams() {
     const grid = document.getElementById('recentStreams');
     grid.innerHTML = '';
 
-    // Latest video → also update main player
+    // Latest video → update main player immediately
     const latest = data.items[0];
-    const latestId = latest.link.split('v=')[1];
+    const latestId = latest.link.split('v=')[1]?.split('&')[0];
     if (latestId) {
       document.getElementById('mainVideo').src =
         `https://www.youtube.com/embed/${latestId}?rel=0&modestbranding=1`;
     }
 
-    // Streams 2–5 → recent grid
+    // Streams 1–4 → recent grid
     const recent = data.items.slice(0, 4);
     recent.forEach((item, i) => {
       const vid    = item.link.split('v=')[1] || '';
